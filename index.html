@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>Cà phê hoà tan Adoré 1890 Cà phê Sữa Việt Nam – NĐ 37/2026/NĐ-CP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --coffee-950:#1c0f09;
+  --coffee-900:#2a160d;
+  --coffee-800:#3d2113;
+  --coffee-700:#5a3018;
+  --coffee-600:#7a4321;
+  --gold:#cf9f4f;
+  --gold-light:#e8caa0;
+  --gold-soft:#f2e2c2;
+  --irish:#1e6b42;
+  --irish-light:#4a9c6b;
+  --cream:#faf5ea;
+  --cream-dim:#f0e6d2;
+  --ink:#2a160d;
+  --ff-serif:"Playfair Display",serif;
+  --ff-head:"Plus Jakarta Sans",sans-serif;
+  --ff-body:"Inter",sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--ff-body);color:var(--ink);min-height:100vh;overflow-x:hidden;position:relative}
+
+/* ===== BACKGROUND: coffee highlands, dimmed + softly blurred ===== */
+.bg-scene{position:fixed;inset:0;z-index:0;overflow:hidden;background-color:var(--coffee-950)}
+.bg-photo{position:absolute;inset:0;background-image:url('images/bg-coffee.jpg');background-size:cover;background-position:center 38%;filter:saturate(1.12) contrast(1.05);transform:scale(1.06);transition:transform .5s ease-out}
+.bg-scene::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(20,10,5,.72) 0%,rgba(28,15,9,.44) 18%,rgba(30,17,10,.40) 55%,rgba(14,7,4,.80) 100%);
+  z-index:1}
+.bg-duotone{position:absolute;inset:0;z-index:2;mix-blend-mode:color;pointer-events:none;background:linear-gradient(150deg,var(--coffee-800) 0%,var(--gold) 52%,var(--irish) 100%);opacity:.30}
+.bg-scene::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 8%,rgba(207,159,79,.18) 0%,transparent 60%),radial-gradient(ellipse 120% 90% at 50% 50%,transparent 52%,rgba(8,4,2,.40) 100%);z-index:3}
+.grain{position:absolute;inset:0;z-index:4;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.bean{position:absolute;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:linear-gradient(135deg,var(--coffee-700),var(--coffee-900));opacity:.35;pointer-events:none;transform:rotate(var(--r,0deg));animation:bean-drift 9s ease-in-out infinite}
+.bean::after{content:"";position:absolute;inset:22% 48% 22% 48%;background:rgba(0,0,0,.35);border-radius:2px}
+@keyframes bean-drift{0%,100%{margin:0 0 0 0}50%{margin:-12px 0 0 8px}}
+
+.page-wrap{position:relative;z-index:5;max-width:480px;margin:0 auto;padding:0 0 70px}
+
+/* ===== LANGUAGE (kept for future use) ===== */
+.lang-bar{display:flex;justify-content:center;gap:8px;padding:16px;flex-wrap:wrap}
+.lang-btn{background:rgba(255,255,255,.1);border:1px solid rgba(232,202,160,.4);border-radius:20px;color:var(--gold-soft);padding:5px 14px;font-size:.75rem;cursor:pointer;transition:.2s}
+.lang-btn.active{background:var(--gold);color:var(--coffee-950);font-weight:700;border-color:var(--gold)}
+.lang-block{display:none}.lang-block.active{display:block}
+
+/* ===== HEADER ===== */
+.site-header{text-align:center;padding:40px 24px 20px}
+.header-badge{display:inline-flex;align-items:center;gap:7px;font-size:.62rem;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--coffee-950);background:linear-gradient(135deg,var(--gold-light),var(--gold));border:1px solid rgba(255,255,255,.4);padding:6px 16px;border-radius:20px;margin-bottom:18px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--irish);box-shadow:0 0 8px var(--irish-light);animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{transform:scale(1)}50%{transform:scale(1.5);opacity:.6}}
+
+.brand-lockup{display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:14px}
+.brand-mark{font-family:var(--ff-serif);font-size:1.05rem;font-weight:700;letter-spacing:9px;color:var(--gold-soft);text-transform:uppercase;text-indent:9px;opacity:.92}
+.brand-logo{font-family:var(--ff-serif);font-size:3rem;font-weight:800;line-height:1;color:#fff;letter-spacing:1px;text-shadow:0 3px 22px rgba(0,0,0,.55)}
+.brand-year{background:linear-gradient(180deg,var(--gold-light) 10%,var(--gold) 60%,#a9793a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+.brand-tagline{font-family:var(--ff-head);font-size:.78rem;font-weight:600;letter-spacing:1px;color:var(--irish-light);margin-top:6px}
+.brand-sub{font-size:.72rem;color:rgba(250,245,234,.65);margin-top:2px}
+
+.header-vol{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(232,202,160,.35);border-radius:30px;padding:7px 18px;font-size:.76rem;font-weight:600;color:var(--cream);margin-top:16px;backdrop-filter:blur(6px)}
+.header-vol span{color:var(--gold-light)}
+
+/* ===== PRODUCT HERO ===== */
+.product-hero{display:flex;justify-content:center;padding:8px 24px 20px;position:relative}
+.product-hero{perspective:900px}
+.product-img-wrap{position:relative;width:min(280px,66vw);transform-style:preserve-3d;transition:transform .2s ease-out;will-change:transform}
+.product-img{width:100%;display:block;filter:drop-shadow(0 18px 30px rgba(0,0,0,.55)) drop-shadow(0 4px 10px rgba(0,0,0,.3));animation:float-bob 5.5s ease-in-out infinite}
+@keyframes float-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.product-glow{position:absolute;inset:-30px;background:radial-gradient(ellipse 60% 55% at 50% 55%,rgba(207,159,79,.30) 0%,rgba(30,107,66,.14) 45%,transparent 72%);z-index:-1;pointer-events:none;animation:glow-pulse 4.5s ease-in-out infinite}
+@keyframes glow-pulse{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
+.product-ring{position:absolute;left:50%;bottom:-6px;width:70%;height:22px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(0,0,0,.45) 0%,transparent 72%);z-index:-1;filter:blur(2px)}
+.steam-wrap{position:absolute;top:-38px;left:50%;transform:translateX(-50%);width:90px;height:56px;pointer-events:none;z-index:2;display:flex;justify-content:center;gap:11px}
+.wisp{width:9px;height:36px;border-radius:50%;background:linear-gradient(180deg,rgba(255,250,240,.65),rgba(255,250,240,0));filter:blur(3px);opacity:0;animation:wisp-rise 4.6s ease-in infinite}
+.wisp:nth-child(2){animation-delay:1.15s;height:44px}
+.wisp:nth-child(3){animation-delay:2.3s;height:30px}
+@keyframes wisp-rise{0%{opacity:0;transform:translateY(8px) scaleY(.6)}18%{opacity:.55}58%{opacity:.3}100%{opacity:0;transform:translateY(-46px) scaleY(1.25)}}
+
+/* ===== DECREE BANNER ===== */
+.decree-banner{margin:0 16px 22px;padding:13px 16px;background:rgba(250,245,234,.10);border:1px solid rgba(232,202,160,.35);backdrop-filter:blur(16px);border-radius:14px;display:flex;align-items:center;gap:12px;border-left:3px solid var(--gold)}
+.decree-icon{font-size:1.3rem;flex-shrink:0}
+.decree-text{font-size:.70rem;color:rgba(250,245,234,.88);line-height:1.5}
+.decree-text strong{display:block;color:var(--gold-soft);font-weight:700;font-size:.73rem;margin-bottom:2px;letter-spacing:.2px}
+
+/* ===== SECTIONS ===== */
+.section-eyebrow{display:flex;align-items:center;gap:9px;font-family:var(--ff-head);font-size:.66rem;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:var(--gold-light);padding:0 20px;margin:26px 0 10px}
+.section-eyebrow::before{content:"";width:16px;height:2px;background:var(--gold);border-radius:2px;flex-shrink:0}
+.section-eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(232,202,160,.35),transparent)}
+
+.card-group{display:flex;flex-direction:column;gap:9px;padding:0 16px}
+.card{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(250,245,234,.97),rgba(240,230,210,.95));border:1px solid rgba(255,255,255,.5);border-left:3px solid var(--irish);border-radius:14px;padding:14px 16px;box-shadow:0 6px 22px rgba(15,8,4,.28);transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-3px) !important;box-shadow:0 12px 28px rgba(15,8,4,.36)}
+.card:active{transform:translateY(-1px) scale(.99) !important}
+.card-row{display:flex;align-items:flex-start;gap:13px}
+.card-icon{width:34px;height:34px;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;background:linear-gradient(135deg,var(--coffee-700),var(--coffee-900));color:var(--gold-soft);box-shadow:inset 0 0 0 1px rgba(207,159,79,.35);transition:transform .3s ease}
+.card:hover .card-icon{transform:rotate(-8deg) scale(1.08)}
+.card-body{flex:1;min-width:0}
+.card-label{font-family:var(--ff-head);font-size:.62rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--coffee-700);margin-bottom:3px}
+.card-value{font-size:.88rem;color:var(--ink);line-height:1.55;font-weight:500}
+.card-value b{color:var(--coffee-800)}
+
+/* ===== NUTRITION TABLE ===== */
+.nutri-card{padding:16px}
+.nutri-card .card-row{margin-bottom:12px}
+.nutri-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.nutri-table thead th{text-align:right;font-family:var(--ff-head);font-size:.6rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--coffee-700);padding:0 4px 9px;border-bottom:2px solid var(--gold)}
+.nutri-table thead th:first-child{text-align:left}
+.nutri-table thead .nutri-sub{display:block;margin-top:2px;font-weight:500;text-transform:none;letter-spacing:0;font-size:.58rem;color:var(--irish);opacity:.9}
+.nutri-table tbody td{padding:9px 4px;border-bottom:1px solid rgba(30,107,66,.14);color:var(--ink);font-weight:600;text-align:right;font-variant-numeric:tabular-nums;transition:background .2s ease}
+.nutri-table tbody td:first-child{text-align:left;font-weight:500}
+.nutri-table tbody tr:last-child td{border-bottom:none}
+.nutri-table tbody tr:hover td{background:rgba(30,107,66,.07)}
+.nutri-en{display:block;font-size:.66rem;font-weight:400;color:var(--coffee-700);opacity:.7}
+.nutri-table tbody tr.nutri-highlight td{font-weight:800;color:var(--coffee-800)}
+.nutri-table tbody tr.nutri-highlight td:first-child{font-weight:700}
+.nutri-table tbody tr.nutri-sub-row td:first-child{padding-left:16px;font-size:.8rem;opacity:.85}
+.nutri-table tbody tr.nutri-sub-row td:first-child::before{content:"– ";color:var(--irish)}
+.nutri-table td.nutri-pct{color:var(--irish);font-weight:700}
+.nutri-note{margin-top:11px;padding-top:9px;border-top:1px dashed rgba(30,107,66,.28);font-size:.62rem;line-height:1.55;color:var(--coffee-700);opacity:.85;font-style:italic}
+
+/* ===== PLATFORM BUTTONS ===== */
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px;margin-bottom:8px}
+.platform-btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 14px;border-radius:14px;text-decoration:none;background:var(--pbtn-bg,var(--coffee-800));color:white;font-weight:700;font-size:.82rem;transition:transform .2s,box-shadow .2s;box-shadow:0 5px 16px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12)}
+.platform-btn:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 8px 22px rgba(0,0,0,.45)}
+.platform-btn:active{transform:translateY(0) scale(.98)}
+.pbtn-svg{flex-shrink:0;display:flex;align-items:center}
+.pbtn-svg svg{border-radius:6px}
+.pbtn-icon{font-size:1.25rem;flex-shrink:0;transition:transform .3s ease}
+.platform-btn:hover .pbtn-icon{transform:scale(1.15) rotate(-6deg)}
+.pbtn-text{font-size:.82rem;font-weight:700;line-height:1.2}
+.buy-generic{--pbtn-bg:linear-gradient(120deg,var(--gold-light),var(--gold) 55%,#a9793a);grid-column:1/-1;color:var(--coffee-950);background:linear-gradient(120deg,var(--gold-light),var(--gold) 55%,#b9863f);box-shadow:0 8px 22px rgba(207,159,79,.35)}
+.buy-generic::after{content:"";position:absolute;top:0;left:-60%;width:35%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:shine-sweep 3.4s ease-in-out infinite}
+@keyframes shine-sweep{0%{left:-60%}55%{left:130%}100%{left:130%}}
+.ripple-el{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);transform:scale(0);animation:ripple-pop .6s ease-out forwards;pointer-events:none}
+@keyframes ripple-pop{to{transform:scale(2.6);opacity:0}}
+
+/* ===== QR ===== */
+/* ===== FOOTER ===== */
+.site-footer{text-align:center;padding:26px 24px 10px}
+.footer-divider{width:46px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px}
+.footer-brand{font-family:var(--ff-head);font-weight:700;color:var(--gold-soft);font-size:.85rem;margin-bottom:4px;letter-spacing:.3px}
+.footer-copy{font-size:.68rem;color:rgba(250,245,234,.55)}
+
+/* ===== REVEAL ANIM ===== */
+.reveal{opacity:0;transform:translateY(18px);filter:blur(6px);transition:opacity .6s ease,transform .6s ease,filter .6s ease}
+.reveal.visible{opacity:1;transform:none;filter:blur(0)}
+
+@media(min-width:860px){.page-wrap{max-width:720px}}
+
+</style>
+</head>
+<body>
+<div class="bg-scene">
+  <div class="bg-photo"></div>
+  <div class="bg-duotone"></div>
+  <div class="grain"></div>
+</div>
+<div class="page-wrap">
+
+  <div class="lang-block active" data-lang="vi"><header class="site-header reveal">
+  <div class="header-badge"><span class="dot"></span> NHÃN ĐIỆN TỬ CHÍNH THỨC</div>
+  <div class="brand-lockup">
+    <span class="brand-mark">ADORÉ</span>
+    <span class="brand-logo brand-year">1890</span>
+    <span class="brand-tagline">Cà Phê Sữa Việt Nam · Hương vị nồng nàn, chuẩn Việt Nam</span>
+    <span class="brand-sub">World Coffee · Số TCB: 05/AL/2022</span>
+  </div>
+  <div class="header-vol">Công ty Cổ phần Thực phẩm Á Long</div>
+</header>
+
+<div class="product-hero reveal">
+  <div class="product-img-wrap">
+    <div class="product-glow"></div>
+    <div class="product-ring"></div>
+    <div class="steam-wrap"><div class="wisp"></div><div class="wisp"></div><div class="wisp"></div></div>
+    <img class="product-img" src="images/cafesuaVN.png" alt="Cà phê hoà tan Adoré 1890 Cà phê Sữa Việt Nam">
+  </div>
+</div>
+
+<div class="decree-banner reveal">
+  <div class="decree-icon">🏛️</div>
+  <div class="decree-text"><strong>NĐ 37/2026/NĐ-CP – Nhãn hàng hóa</strong>Nhãn điện tử công bố đầy đủ thông tin bắt buộc theo quy định Bộ KH&amp;CN Việt Nam.</div>
+</div>
+
+<p class="section-eyebrow reveal">Thông tin sản phẩm</p>
+<div class="card-group">
+  <div class="card card-row reveal"><div class="card-icon">🏷️</div><div class="card-body"><div class="card-label">Tên hàng hóa</div><div class="card-value">Cà phê hoà tan Adoré 1890 Cà phê Sữa Việt Nam</div></div></div>
+  <div class="card card-row reveal"><div class="card-icon">🏢</div><div class="card-body"><div class="card-label">Tổ chức chịu trách nhiệm</div><div class="card-value">Công ty Cổ phần Thực phẩm Á Long</div></div></div>
+  <div class="card card-row reveal"><div class="card-icon">📍</div><div class="card-body"><div class="card-label">Địa chỉ</div><div class="card-value">Sản xuất tại: CÔNG TY CỔ PHẦN CÀ PHÊ OLYMPIC<br>Đường số 1, KCN Nhơn Trạch 3 - Giai đoạn 2, Phường Nhơn Trạch, Thành phố Đồng Nai, Việt Nam.</div></div></div>
+  <div class="card card-row reveal"><div class="card-icon">🌏</div><div class="card-body"><div class="card-label">Xuất xứ</div><div class="card-value">Việt Nam</div></div></div>
+  <div class="card card-row reveal"><div class="card-icon">⚖️</div><div class="card-body"><div class="card-label">Định lượng</div><div class="card-value">25g/gói stick</div></div></div>
+  <div class="card card-row reveal"><div class="card-icon">📅</div><div class="card-body"><div class="card-label">Ngày sản xuất</div><div class="card-value">Xem trên bao bì</div></div></div>
+  <div class="card card-row reveal"><div class="card-icon">⏰</div><div class="card-body"><div class="card-label">Hạn sử dụng</div><div class="card-value">24 tháng kể từ ngày sản xuất</div></div></div>
+</div>
+
+<p class="section-eyebrow reveal">Thành phần</p>
+<div class="card-group">
+  <div class="card card-row reveal"><div class="card-icon">🧪</div><div class="card-body"><div class="card-label">Thành phần nguyên liệu</div><div class="card-value">Bột kem thực vật, đường, cà phê hòa tan (10%), maltodextrin, chất tạo màu tự nhiên (150d), hương cà phê tổng hợp, muối, chất tạo ngọt tổng hợp (951).</div></div></div>
+</div>
+
+<p class="section-eyebrow reveal">Giá trị dinh dưỡng</p>
+<div class="card-group">
+  <div class="card nutri-card reveal">
+    <div class="card-row">
+      <div class="card-icon">🍽️</div>
+      <div class="card-body"><div class="card-label">Bảng thành phần dinh dưỡng</div><div class="card-value" style="font-size:.74rem;font-weight:400;opacity:.75">Nutrition Facts theo khẩu phần ăn</div></div>
+    </div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Thành phần<span class="nutri-sub">Nutrition facts</span></th>
+          <th>Trên 1 gói (25g)<span class="nutri-sub">Per 1 stick</span></th>
+          <th>(%) NRV*</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="nutri-highlight"><td>Năng lượng<span class="nutri-en">Energy</span></td><td>110 Kcal</td><td class="nutri-pct">6%</td></tr>
+        <tr><td>Chất đạm<span class="nutri-en">Protein</span></td><td>&lt;1 g</td><td class="nutri-pct">–</td></tr>
+        <tr><td>Carbohydrat<span class="nutri-en">Carbohydrate</span></td><td>19 g</td><td class="nutri-pct">6%</td></tr>
+        <tr class="nutri-sub-row"><td>Đường tổng<span class="nutri-en">Total Sugars</span></td><td>17 g</td><td class="nutri-pct">–</td></tr>
+        <tr><td>Chất béo<span class="nutri-en">Total Fat</span></td><td>3.5 g</td><td class="nutri-pct">6%</td></tr>
+        <tr><td>Natri<span class="nutri-en">Sodium</span></td><td>65 mg</td><td class="nutri-pct">3%</td></tr>
+      </tbody>
+    </table>
+    <p class="nutri-note">(*): (%) NRV (Nutrition reference values) – (%) Giá trị dinh dưỡng tham chiếu là tỉ lệ đáp ứng nhu cầu dinh dưỡng hàng ngày (với khẩu phần 2000 Kcal) của mỗi thành phần dinh dưỡng có trong một khẩu phần ăn.</p>
+  </div>
+</div>
+
+<p class="section-eyebrow reveal">Hướng dẫn sử dụng</p>
+<div class="card-group">
+  <div class="card card-row reveal"><div class="card-icon">☕</div><div class="card-body"><div class="card-label">Cách pha chế</div><div class="card-value">Cho một gói cà phê vào ly, rót 60ml nước nóng, khuấy đều và thưởng thức.</div></div></div>
+</div>
+    
+<p class="section-eyebrow reveal">Bảo quản</p>
+<div class="card-group">
+  <div class="card card-row reveal"><div class="card-icon">❄️</div><div class="card-body"><div class="card-label">Hướng dẫn bảo quản</div><div class="card-value">Bảo quản nơi khô ráo, thoáng mát, tránh để gần hóa chất và sản phẩm có mùi mạnh.</div></div></div>
+</div>
+
+<p class="section-eyebrow reveal">An toàn</p>
+<div class="card-group">
+  <div class="card card-row reveal"><div class="card-icon">⚠️</div><div class="card-body"><div class="card-label">Cảnh báo an toàn</div><div class="card-value">Không dùng cho người dị ứng với thành phần của sản phẩm.<br>Sản phẩm có chứa protein sữa và gluten.</div></div></div>
+</div>
+
+<p class="section-eyebrow reveal">Mua hàng &amp; liên hệ</p>
+<div class="platform-grid reveal">
+  <a class="platform-btn buy-generic" href="https://www.adore-coffee.com/product-page/copy-of-copy-of-cà-phê-hòa-tan456" target="_blank">
+    <span class="pbtn-icon">🛒</span>
+    <span class="pbtn-text">ĐẶT MUA NGAY</span>
+  </a>
+  <a class="platform-btn" style="--pbtn-bg:#1877f2" href="https://www.facebook.com/adoreworldcoffee/?locale=vi_VN" target="_blank">
+    <span class="pbtn-svg"><svg viewBox="0 0 40 40" width="22" height="22"><rect width="40" height="40" rx="20" fill="#1877f2"/><path d="M22 20h3l.5-3.5H22v-2c0-1 .5-1.5 1.5-1.5H26V10s-1.5-.5-3-.5c-3 0-5 1.8-5 5v2h-3V20h3v10h4V20z" fill="white"/></svg></span>
+    <span class="pbtn-text">Facebook</span>
+  </a>
+  <a class="platform-btn" style="--pbtn-bg:#0068ff" href="https://zalo.me/3432814838358178842" target="_blank">
+    <span class="pbtn-svg"><svg viewBox="0 0 40 40" width="22" height="22"><rect width="40" height="40" rx="20" fill="#0068ff"/><text x="20" y="27" text-anchor="middle" font-size="13" font-weight="900" fill="white" font-family="Arial">Zalo</text></svg></span>
+    <span class="pbtn-text">Zalo OA</span>
+  </a>
+</div>
+
+<footer class="site-footer reveal">
+  <div class="footer-divider"></div>
+  <div class="footer-brand">Adoré · World Coffee <br> Công ty Cổ phần Thực phẩm Á Long</div>
+  <div class="footer-copy">© 2026 · Nhãn điện tử theo Nghị định 37/2026/NĐ-CP</div>
+</footer>
+
+  </div>
+</div>
+<script>
+(function(){
+  var sc=document.querySelector('.bg-scene');
+  var beans=[
+    {t:'6%',l:'6%',w:44,r:-18},
+    {t:'14%',l:'85%',w:30,r:35},
+    {t:'46%',l:'2%',w:26,r:60},
+    {t:'62%',l:'92%',w:38,r:-40},
+    {t:'82%',l:'10%',w:24,r:15},
+    {t:'92%',l:'80%',w:34,r:-25}
+  ];
+  beans.forEach(function(b){
+    var d=document.createElement('div');
+    d.className='bean';
+    d.style.top=b.t;d.style.left=b.l;d.style.width=b.w+'px';d.style.height=(b.w*1.35)+'px';
+    d.style.setProperty('--r',b.r+'deg');
+    d.style.animationDuration=(7+Math.random()*5).toFixed(1)+'s';
+    d.style.animationDelay=(Math.random()*4).toFixed(1)+'s';
+    sc.appendChild(d);
+  });
+
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e,i){if(e.isIntersecting){e.target.style.transitionDelay=((e.target.dataset.ri||0)*70)+'ms';e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el,i){el.dataset.ri=i%5;obs.observe(el);});
+
+  /* 3D tilt on the product photo, following pointer */
+  var hero=document.querySelector('.product-hero');
+  var wrap=document.querySelector('.product-img-wrap');
+  var hoverCapable=window.matchMedia('(hover:hover)').matches;
+  if(hero&&wrap&&hoverCapable){
+    hero.addEventListener('pointermove',function(e){
+      var r=hero.getBoundingClientRect();
+      var px=(e.clientX-r.left)/r.width-.5;
+      var py=(e.clientY-r.top)/r.height-.5;
+      wrap.style.transform='rotateY('+(px*16).toFixed(2)+'deg) rotateX('+(py*-16).toFixed(2)+'deg)';
+    });
+    hero.addEventListener('pointerleave',function(){wrap.style.transform='rotateY(0deg) rotateX(0deg)';});
+  }
+
+  /* subtle mouse-driven parallax on the background photo */
+  var photo=document.querySelector('.bg-photo');
+  if(photo&&hoverCapable){
+    document.addEventListener('pointermove',function(e){
+      var px=(e.clientX/window.innerWidth-.5)*14;
+      var py=(e.clientY/window.innerHeight-.5)*14;
+      photo.style.transform='translate('+px.toFixed(1)+'px,'+py.toFixed(1)+'px) scale(1.07)';
+    });
+  }
+
+  /* tactile ripple on cards & buttons */
+  function spawnRipple(e){
+    var el=e.currentTarget;
+    var rect=el.getBoundingClientRect();
+    var d=Math.max(rect.width,rect.height);
+    var x=(e.clientX!==undefined?e.clientX:rect.left+rect.width/2)-rect.left-d/2;
+    var y=(e.clientY!==undefined?e.clientY:rect.top+rect.height/2)-rect.top-d/2;
+    var span=document.createElement('span');
+    span.className='ripple-el';
+    span.style.width=span.style.height=d+'px';
+    span.style.left=x+'px';
+    span.style.top=y+'px';
+    el.appendChild(span);
+    setTimeout(function(){span.remove();},650);
+  }
+  document.querySelectorAll('.card, .platform-btn').forEach(function(el){
+    el.addEventListener('pointerdown',spawnRipple);
+  });
+})();
+function switchLang(lang){
+  document.querySelectorAll('.lang-block').forEach(function(b){b.classList.remove('active');});
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active');});
+  var block=document.querySelector('[data-lang="'+lang+'"]');
+  if(block)block.classList.add('active');
+  document.querySelectorAll('[onclick]').forEach(function(b){if(b.getAttribute('onclick').includes("'"+lang+"'"))b.classList.add('active');});
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.remove('visible');setTimeout(function(){el.classList.add('visible');},60);});
+}
+</script>
+</body>
+</html>
